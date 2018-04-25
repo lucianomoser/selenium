@@ -18,16 +18,30 @@ namespace AutomacaoJulioDeLima
     {
 
 
-        public IWebDriver driver;
+        public IWebDriver driver { get; set; }
+        public IWebDriver navegador { get; set; }
+
+        
+
+        [SetUp]
+        public void inicializaAmbiente()
+        {
+            navegador = new ChromeDriver();
+            navegador.Manage().Window.Maximize();
+            navegador.Navigate().GoToUrl("http://www.juliodelima.com.br/taskit/");
+        }
+
+        [TearDown]
+        public void finalizaambiente()
+        {
+            //Finaliza navegador
+            navegador.Quit();
+        }
 
 
         [Test]
         public void TesteAdicionarUmaInformacaoAdicionalDoUsuario()
-        {
-            IWebDriver navegador = new ChromeDriver();
-            navegador.Manage().Window.Maximize();
-            navegador.Navigate().GoToUrl("http://www.juliodelima.com.br/taskit/");
-            
+        {           
 
             //Clicar no link que possui o texto "SignBox"
             navegador.FindElement(By.LinkText("Sign in")).Click();                    
@@ -51,14 +65,9 @@ namespace AutomacaoJulioDeLima
             string textoNoElementoMe;
 
             textoNoElementoMe = me.Text;              
-            
+                        
             //Validação            
-            Assert.AreEqual("Hi, Julio1", textoNoElementoMe);
-
-            //Fechar navegador
-
-            navegador.Quit();
-
+            Assert.AreEqual("Hi, Julio1", textoNoElementoMe);            
             
         }
     }
