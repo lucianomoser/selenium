@@ -9,23 +9,28 @@ using OpenQA.Selenium.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
+using System.Threading;
+
 namespace AutomacaoJulioDeLima
 {
     [TestFixture]
     public class TestesSitejulioDeLima
     {
+
+
+        public IWebDriver driver;
+
+
         [Test]
         public void TesteAdicionarUmaInformacaoAdicionalDoUsuario()
         {
             IWebDriver navegador = new ChromeDriver();
+            navegador.Manage().Window.Maximize();
             navegador.Navigate().GoToUrl("http://www.juliodelima.com.br/taskit/");
-          
-
-
+            
 
             //Clicar no link que possui o texto "SignBox"
-            navegador.FindElement(By.LinkText("Sign in")).Click();                       
-
+            navegador.FindElement(By.LinkText("Sign in")).Click();                    
             
             IWebElement formularioSignBox = navegador.FindElement(By.Id("signinbox"));
 
@@ -37,9 +42,11 @@ namespace AutomacaoJulioDeLima
             
             //Clicar no link SIGN IN
             navegador.FindElement(By.LinkText("SIGN IN")).Click();
+
+            WebDriverWait wait = new WebDriverWait(navegador, TimeSpan.FromSeconds(3));
             
             //Validar que dentro do elemento com class  "me" esta o texto "Hi Julio"
-            IWebElement me =  navegador.FindElement(By.ClassName("me"));
+            IWebElement me =  wait.Until(driver => navegador.FindElement(By.ClassName("me")));            
 
             string textoNoElementoMe;
 
@@ -49,6 +56,8 @@ namespace AutomacaoJulioDeLima
             Assert.AreEqual("Hi, Julio1", textoNoElementoMe);
 
             //Fechar navegador
+
+            navegador.Quit();
 
             
         }
