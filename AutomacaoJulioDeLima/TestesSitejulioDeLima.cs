@@ -1,28 +1,19 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-
-using System.Threading;
 
 namespace AutomacaoJulioDeLima
 {
     [TestFixture]
     public class TestesSitejulioDeLima
     {
-
-
         private IWebDriver driver { get; set; }
         private IWebDriver navegador { get; set; }
 
-
-
+                
         [SetUp]
         public void inicializaAmbiente()
         {
