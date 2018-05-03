@@ -5,28 +5,22 @@ using OpenQA.Selenium.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace AutomacaoJulioDeLima
-{
+namespace AutomacaoJulioDeLima {
     [TestFixture]
-    public class TestesSitejulioDeLima
-    {
+    public class TestesSitejulioDeLima {
         private IWebDriver driver { get; set; }
         private IWebDriver navegador { get; set; }
 
-                
+        private WebDriverWait aguardar { get; set; }
+
+
         [SetUp]
-        public void inicializaAmbiente()
-        {
+        public void inicializaAmbiente() {
+
+
             navegador = new ChromeDriver();
-            navegador.Manage().Window.Maximize();
+            //navegador.Manage().Window.Maximize();
             navegador.Navigate().GoToUrl("http://www.juliodelima.com.br/taskit/");
-        }
-
-
-
-        [Test]
-        public void informacoesUsuarioTeste()
-        {
 
             //Clicar no link que possui o texto "SignBox"
             navegador.FindElement(By.LinkText("Sign in")).Click();
@@ -42,10 +36,10 @@ namespace AutomacaoJulioDeLima
             //Clicar no link SIGN IN
             navegador.FindElement(By.LinkText("SIGN IN")).Click();
 
-            WebDriverWait wait = new WebDriverWait(navegador, TimeSpan.FromSeconds(3));
+            aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(20));
 
             //Validar que dentro do elemento com class  "me" esta o texto "Hi Julio"
-            IWebElement me = wait.Until(driver => navegador.FindElement(By.ClassName("me")));
+            IWebElement me = aguardar.Until(driver => navegador.FindElement(By.ClassName("me")));
 
             string textoNoElementoMe;
 
@@ -54,8 +48,16 @@ namespace AutomacaoJulioDeLima
             //Clicar no link Hi, Julio1
             navegador.FindElement(By.LinkText(textoNoElementoMe)).Click();
 
-            //Clicar no link MORE DATA ABOUT YOU
-            navegador.FindElement(By.LinkText("MORE DATA ABOUT YOU")).Click();
+        }
+
+
+
+        // [Test]
+        public void informacoesUsuarioTeste() {
+
+            aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(3));
+
+
 
             //Clicar no Botão  + ADD MORE DATA atraves do XPath ////div[@id="moredata"]//button[@data-target="addmoredata"]
             navegador.FindElement(By.XPath("//div[@id='moredata']//button[@data-target='addmoredata']")).Click();
@@ -79,11 +81,11 @@ namespace AutomacaoJulioDeLima
 
             //Na mensagem de id="toast-container" validar o texto 'Your contact has been added!'
 
-            IWebElement mensagem = wait.Until(driver => navegador.FindElement(By.Id("toast-container")));
+            IWebElement mensagem = aguardar.Until(driver => navegador.FindElement(By.Id("toast-container")));
 
             string textoMsg = mensagem.Text;
 
-            Assert.AreEqual(textoMsg, "Your contact has been added!"); 
+            Assert.AreEqual(textoMsg, "Your contact has been added!");
 
 
 
@@ -91,10 +93,42 @@ namespace AutomacaoJulioDeLima
             //Assert.AreEqual("Hi, Julio1", textoNoElementoMe);                        
         }
 
+        [Test]
+        public void RemverUmContatoDeUmUsuario() {
+
+
+            //Clicar no link MORE DATA ABOUT YOU
+            navegador.FindElement(By.LinkText("MORE DATA ABOUT YOU")).Click();
+
+            //Clicar pelo elemento XPath //span[text()="+554788881122"]/following-sibling::a
+            navegador.FindElement(By.XPath("//span[text()='+554788881122']/following-sibling::a")).Click();
+
+            //Confirmar a janela java script o botão Ok
+            navegador.SwitchTo().Alert().Accept();
+
+            //Validar que a mensagem apresentanda Rest in peace, dear email! id = "toast-container"
+            IWebElement mensagemPop = navegador.FindElement(By.Id("toast - container"));
+            string mensagem = mensagemPop.Text;
+
+            Assert.AreEqual("Rest in peace, dear email!", mensagem);
+
+            //Depois da janela ser apresentada aguardar 10 segundos a janela desaparecer.3
+
+            aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(15));
+
+            aguardar.Until(driver => navegador.FindElement(By.LinkText("mensagemPop")));
+
+            //Fazer logaunt clicar no link Logout     
+            navegador.FindElement(By.LinkText("Logout")).Click();
+
+
+
+
+        }
+
 
         [TearDown]
-        public void finalizaambiente()
-        {
+        public void finalizaambiente() {
             //Finaliza navegador
             navegador.Quit();
         }

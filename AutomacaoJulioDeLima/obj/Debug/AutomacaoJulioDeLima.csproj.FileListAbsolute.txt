@@ -12,3 +12,16 @@ C:\Luciano\Projetos\Udemy\Automacao de Testes Com Selenium Webdriver\AutomacaoJu
 C:\Luciano\Projetos\Udemy\Automacao de Testes Com Selenium Webdriver\AutomacaoJulioDeLima\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.dll
 C:\Luciano\Projetos\Udemy\Automacao de Testes Com Selenium Webdriver\AutomacaoJulioDeLima\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.pdb
 C:\Luciano\Projetos\Udemy\Automacao de Testes Com Selenium Webdriver\AutomacaoJulioDeLima\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.csprojResolveAssemblyReference.cache
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\AutomacaoJulioDeLima.dll
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\AutomacaoJulioDeLima.pdb
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\nunit.framework.dll
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\WebDriver.dll
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\WebDriver.Support.dll
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\nunit.framework.pdb
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\nunit.framework.xml
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\WebDriver.xml
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\WebDriver.Support.xml
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.dll
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.pdb
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.csprojResolveAssemblyReference.cache
