@@ -5,12 +5,12 @@ using OpenQA.Selenium.Support;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
+
 namespace AutomacaoJulioDeLima {
     [TestFixture]
     public class TestesSitejulioDeLima {
         private IWebDriver driver { get; set; }
-        private IWebDriver navegador { get; set; }
-
+        private IWebDriver navegador { get; set; }        
         private WebDriverWait aguardar { get; set; }
 
 
@@ -21,6 +21,8 @@ namespace AutomacaoJulioDeLima {
             navegador = new ChromeDriver();
             //navegador.Manage().Window.Maximize();
             navegador.Navigate().GoToUrl("http://www.juliodelima.com.br/taskit/");
+
+            navegador.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             //Clicar no link que possui o texto "SignBox"
             navegador.FindElement(By.LinkText("Sign in")).Click();
@@ -36,10 +38,10 @@ namespace AutomacaoJulioDeLima {
             //Clicar no link SIGN IN
             navegador.FindElement(By.LinkText("SIGN IN")).Click();
 
-            aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(20));
+            //aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(3));           
+            
 
-            //Validar que dentro do elemento com class  "me" esta o texto "Hi Julio"
-            IWebElement me = aguardar.Until(driver => navegador.FindElement(By.ClassName("me")));
+            IWebElement me = navegador.FindElement(By.ClassName("me"));
 
             string textoNoElementoMe;
 
@@ -48,15 +50,18 @@ namespace AutomacaoJulioDeLima {
             //Clicar no link Hi, Julio1
             navegador.FindElement(By.LinkText(textoNoElementoMe)).Click();
 
+            //Clicar no link MORE DATA ABOUT YOU
+            navegador.FindElement(By.LinkText("MORE DATA ABOUT YOU")).Click();
+
+
         }
 
 
 
-        // [Test]
+        [Test]
         public void informacoesUsuarioTeste() {
 
             aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(3));
-
 
 
             //Clicar no Botão  + ADD MORE DATA atraves do XPath ////div[@id="moredata"]//button[@data-target="addmoredata"]
@@ -94,44 +99,37 @@ namespace AutomacaoJulioDeLima {
         }
 
         [Test]
-        public void RemverUmContatoDeUmUsuario() {
-
-
-            //Clicar no link MORE DATA ABOUT YOU
-            navegador.FindElement(By.LinkText("MORE DATA ABOUT YOU")).Click();
+        public void RemoverUmContatoDeUmUsuario() {
 
             //Clicar pelo elemento XPath //span[text()="+554788881122"]/following-sibling::a
-            navegador.FindElement(By.XPath("//span[text()='+554788881122']/following-sibling::a")).Click();
+            navegador.FindElement(By.XPath("//span[text()='554788881122']/following-sibling::a")).Click();
 
             //Confirmar a janela java script o botão Ok
             navegador.SwitchTo().Alert().Accept();
 
             //Validar que a mensagem apresentanda Rest in peace, dear email! id = "toast-container"
-            IWebElement mensagemPop = navegador.FindElement(By.Id("toast - container"));
+            IWebElement mensagemPop = navegador.FindElement(By.Id("toast-container"));
             string mensagem = mensagemPop.Text;
-
-            Assert.AreEqual("Rest in peace, dear email!", mensagem);
+            Assert.AreEqual("Rest in peace, dear phone!", mensagem);
 
             //Depois da janela ser apresentada aguardar 10 segundos a janela desaparecer.3
+            aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(10));
 
-            aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(15));
-
-            aguardar.Until(driver => navegador.FindElement(By.LinkText("mensagemPop")));
+            //aguardar.Until(driver => navegador.FindElement(By.Id("toast-container")));                     
+            aguardar.Until(ExpectedConditions.StalenessOf(mensagemPop));
 
             //Fazer logaunt clicar no link Logout     
             navegador.FindElement(By.LinkText("Logout")).Click();
-
-
-
-
         }
 
 
         [TearDown]
         public void finalizaambiente() {
-            //Finaliza navegador
+            //Fecha navegador
             navegador.Quit();
         }
 
     }
 }
+
+
