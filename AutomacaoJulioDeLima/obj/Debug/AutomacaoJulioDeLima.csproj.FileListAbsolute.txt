@@ -22,6 +22,6 @@ C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\
 C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\nunit.framework.xml
 C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\WebDriver.xml
 C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\bin\Debug\WebDriver.Support.xml
+C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.csprojResolveAssemblyReference.cache
 C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.dll
 C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.pdb
-C:\Projetos_C#\Udemy\Selenium WebDriver\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.csprojResolveAssemblyReference.cache

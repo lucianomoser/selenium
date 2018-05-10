@@ -65,8 +65,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="OpenQA\Selenium\Support\UI\IWait.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="suporte\Generator.cs" />
+    <Compile Include="suporte\Foto.cs" />
+    <Compile Include="suporte\Web.cs" />
     <Compile Include="TestesSitejulioDeLima.cs" />
   </ItemGroup>
   <ItemGroup>

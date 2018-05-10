@@ -10,17 +10,14 @@ namespace AutomacaoJulioDeLima {
     [TestFixture]
     public class TestesSitejulioDeLima {
         private IWebDriver driver { get; set; }
-        private IWebDriver navegador { get; set; }        
+        private IWebDriver navegador { get; set; }
         private WebDriverWait aguardar { get; set; }
-
 
         [SetUp]
         public void inicializaAmbiente() {
 
 
-            navegador = new ChromeDriver();
-            //navegador.Manage().Window.Maximize();
-            navegador.Navigate().GoToUrl("http://www.juliodelima.com.br/taskit/");
+            navegador = Web.chrome();
 
             navegador.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
@@ -39,7 +36,7 @@ namespace AutomacaoJulioDeLima {
             navegador.FindElement(By.LinkText("SIGN IN")).Click();
 
             //aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(3));           
-            
+
 
             IWebElement me = navegador.FindElement(By.ClassName("me"));
 
@@ -61,6 +58,7 @@ namespace AutomacaoJulioDeLima {
         [Test]
         public void informacoesUsuarioTeste() {
 
+            
             aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(3));
 
 
@@ -112,6 +110,11 @@ namespace AutomacaoJulioDeLima {
             string mensagem = mensagemPop.Text;
             Assert.AreEqual("Rest in peace, dear phone!", mensagem);
 
+            string nomeDoArquivo = @"C:\temp\" + Generator.dataHoraParaArquivo() + "RemoverUmcontatoParaUsusario.png";
+            Foto.tirar(navegador, nomeDoArquivo );
+
+
+
             //Depois da janela ser apresentada aguardar 10 segundos a janela desaparecer.3
             aguardar = new WebDriverWait(navegador, TimeSpan.FromSeconds(10));
 
@@ -131,5 +134,6 @@ namespace AutomacaoJulioDeLima {
 
     }
 }
+
 
 
