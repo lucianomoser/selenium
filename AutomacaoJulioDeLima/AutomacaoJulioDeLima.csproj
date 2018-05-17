@@ -65,10 +65,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="pages\BasePage.cs" />
+    <Compile Include="pages\LoginFormPage.cs" />
+    <Compile Include="pages\LoginPage.cs" />
+    <Compile Include="pages\SecretaPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="suporte\Generator.cs" />
     <Compile Include="suporte\Foto.cs" />
     <Compile Include="suporte\Web.cs" />
+    <Compile Include="TesteUsuarioPageObject.cs" />
     <Compile Include="TestesSitejulioDeLima.cs" />
   </ItemGroup>
   <ItemGroup>

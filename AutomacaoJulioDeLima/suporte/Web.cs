@@ -11,8 +11,10 @@ namespace AutomacaoJulioDeLima{
         public static IWebDriver chrome() {
 
             IWebDriver navegador = new ChromeDriver();
-       
-            navegador.Navigate().GoToUrl("http://www.juliodelima.com.br/taskit/");
+
+            navegador.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
+            navegador.Navigate().GoToUrl("http://www.juliodelima.com.br/taskit/");           
 
             return navegador;
         }
