@@ -3,11 +3,8 @@
 namespace AutomacaoJulioDeLima
 {
 
-    public class LoginPage
-    {
-        private IWebDriver navegador { get; set; }
-
-
+    public class LoginPage:BasePage
+    {     
         public LoginPage(IWebDriver navegador)
         {
             this.navegador = navegador;

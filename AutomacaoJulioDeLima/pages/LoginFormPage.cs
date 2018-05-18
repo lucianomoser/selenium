@@ -2,10 +2,9 @@
 
 namespace AutomacaoJulioDeLima
 {
-    public class LoginFormPage
+    public class LoginFormPage:BasePage
     {
-        private IWebDriver navegador;
-
+        
         public LoginFormPage(IWebDriver navegador)
         {
             this.navegador = navegador;
@@ -17,7 +16,7 @@ namespace AutomacaoJulioDeLima
             return this;             
         }
 
-        public LoginFormPage DigitaSenha(string passopassword)
+        public LoginFormPage DigitarSenha(string passopassword)
         {
             navegador.FindElement(By.Id("signinbox")).FindElement(By.Name("password")).SendKeys(passopassword);
             return this;
@@ -28,5 +27,16 @@ namespace AutomacaoJulioDeLima
             navegador.FindElement(By.LinkText("SIGN IN")).Click();
             return new SecretaPage(navegador);
         }
+
+        public SecretaPage FazerLogin(string login, string senha)
+        {
+            DigitarLogin(login);
+            DigitarSenha(senha);
+            ClicarSign();
+            return new SecretaPage(navegador);
+
+        }
+        
+
     }
 }

@@ -2,7 +2,7 @@
 
 namespace AutomacaoJulioDeLima
 {
-    class BasePage
+    public class BasePage
     {
         protected IWebDriver navegador { get; set; }
 

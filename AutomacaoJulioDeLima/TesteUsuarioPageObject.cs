@@ -24,10 +24,17 @@ namespace AutomacaoJulioDeLima
         public void informacoesUsuarioTeste()
         {
             new LoginPage(navegador)
+
             .clicarLinkSignIn()
-            .DigitarLogin("julio0001")
-            .DigitaSenha("123456")
-            .ClicarSign();
+            //.DigitarLogin("julio0001")
+            //.DigitaSenha("123456")
+            .FazerLogin("julio0001", "123456")
+            //.ClicarSign()
+            .ClicarPaginaMe()
+            .ClicarMoreDataAbout()
+            .ClicarAddBotaoMoreDateAbout();    
+                 
+            
         }
 
 
