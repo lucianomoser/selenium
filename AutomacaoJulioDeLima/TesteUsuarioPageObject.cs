@@ -23,7 +23,7 @@ namespace AutomacaoJulioDeLima
         [Test]
         public void informacoesUsuarioTeste()
         {
-            new LoginPage(navegador)
+            string mensagem = new LoginPage(navegador)
 
             .clicarLinkSignIn()
             //.DigitarLogin("julio0001")
@@ -32,7 +32,12 @@ namespace AutomacaoJulioDeLima
             //.ClicarSign()
             .ClicarPaginaMe()
             .ClicarMoreDataAbout()
-            .ClicarAddBotaoMoreDateAbout();    
+            .ClicarAddBotaoMoreDateAbout()
+            .AdicionarContato("Phone","+55119999999112")
+            .VerificaMsgToastcontainer();
+
+            Assert.AreEqual(mensagem, "Your contact has been added!");
+
                  
             
         }

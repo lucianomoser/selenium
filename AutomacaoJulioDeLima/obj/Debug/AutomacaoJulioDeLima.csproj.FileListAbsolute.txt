@@ -36,6 +36,5 @@ C:\Luciano\Projetos\Udemy\Selenium\selenium\AutomacaoJulioDeLima\bin\Debug\nunit
 C:\Luciano\Projetos\Udemy\Selenium\selenium\AutomacaoJulioDeLima\bin\Debug\WebDriver.xml
 C:\Luciano\Projetos\Udemy\Selenium\selenium\AutomacaoJulioDeLima\bin\Debug\WebDriver.Support.xml
 C:\Luciano\Projetos\Udemy\Selenium\selenium\AutomacaoJulioDeLima\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
-C:\Luciano\Projetos\Udemy\Selenium\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.csprojResolveAssemblyReference.cache
 C:\Luciano\Projetos\Udemy\Selenium\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.dll
 C:\Luciano\Projetos\Udemy\Selenium\selenium\AutomacaoJulioDeLima\obj\Debug\AutomacaoJulioDeLima.pdb
