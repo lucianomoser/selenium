@@ -13,7 +13,8 @@ namespace AutomacaoJulioDeLima
         [SetUp]
         public void inicializaAmbiente()
         {
-            navegador = Web.chrome();           
+           // navegador = Web.chrome();
+            navegador = Web.CreateBrowserstack();           
         }
 
 
@@ -50,3 +51,4 @@ namespace AutomacaoJulioDeLima
         }
     }
 }
+
